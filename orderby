@@ -2,3 +2,8 @@ select *
 from prefectures 
 order by area desc
 limit 10
+
+
+select id, name as '都道府県', (population / area) as' 人口密度'
+from prefectures
+order by '人口密度' desc
