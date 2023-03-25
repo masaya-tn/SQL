@@ -7,3 +7,15 @@ limit 10
 select id, name as '都道府県', (population / area) as' 人口密度'
 from prefectures
 order by '人口密度' desc
+
+
+SELECT
+    region AS '地方名',
+    COUNT(*) AS '都道府県数',
+    SUM(area) AS '総面積'
+FROM
+    prefectures
+GROUP BY
+    region
+ORDER BY
+    `総面積` DESC;
