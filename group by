@@ -1,0 +1,19 @@
+SELECT
+    name AS '顧客名',
+    SUM(amount) AS '合計金額'
+FROM
+    ledger
+WHERE
+    DATE(date) BETWEEN '2022-08-08' AND '2022-08-14'
+GROUP BY
+    name
+HAVING
+    `合計金額` >= 5000;
+    
+    
+GROUP BY 句を用いて集計したデータに対して検索を行うには、HAVING 句を用います。
+
+たとえば、購入回数が 10 回以上の顧客名と購入回数は次のクエリで求められます。
+
+SELECT name, COUNT(*) AS '購入回数' FROM ledger GROUP BY name HAVING `購入回数` >= 10;
+WHERE 句は集計前のデータの検索を行い、HAVING 句は集計後のデータの検索を行うことに注意してください。
