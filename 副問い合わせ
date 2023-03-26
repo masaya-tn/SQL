@@ -3,3 +3,11 @@ from prefectures
 where name in (
     select name from kanto_regions
 )
+
+
+select prefectures.name as '都道府県名',
+    (select regions.name 
+    from regions 
+    where prefectures.region_id = regions.id)
+    as '地方名'
+from prefectures;
